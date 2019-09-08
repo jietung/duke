@@ -40,6 +40,12 @@ public class Ui {
      * @return The message of list of tasks.
      */
     public String taskListMessage() {
+        assert tasks == null : "List of tasks should not be null";
+
+        if (tasks.size()  == 0) {
+            return "There is no task in your list.\n";
+        }
+
         String s = "Here are the tasks in your list:\n";
 
         int i = 1;
@@ -91,6 +97,7 @@ public class Ui {
      * @return The string of added task.
      */
     public String addTaskMessage(Task t, TaskList tasks) {
+        assert t == null : "The task added should not be null";
         return "Got it. I've added this task:\n" + "  " + t + "\nNow you have " + tasks.size() + " tasks in the list.";
     }
 
@@ -100,6 +107,7 @@ public class Ui {
      * @return The string of task mark as done.
      */
     public String taskDoneMessage(Task t) {
+        assert t == null : "The task done should not be null";
         return "Nice! I've marked this task as done:\n\t" + t;
     }
 
@@ -110,6 +118,7 @@ public class Ui {
      * @return The string of task deleted.
      */
     public String deleteTaskMessage(Task t, TaskList tasks) {
+        assert t == null : "The task deleted should not be null";
         return "Noted! I've removed this task:\n" + t + "\nNow you have " + tasks.size() + " tasks in the list.\n";
     }
 
@@ -119,6 +128,12 @@ public class Ui {
      * @return The string of all task that match the keyword.
      */
     public String matchingTaskMessage(TaskList tasks) {
+        assert tasks == null : "The list of tasks should not be null";
+
+        if (tasks.size() == 0) {
+            return "There is no matching tasks in your list.\n";
+        }
+
         String s = "Here are the matching tasks in your list:\n";
 
         int i = 1;

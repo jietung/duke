@@ -13,7 +13,7 @@ public class Parser {
      * @param str The String of command.
      * @param tasks The list of Task in TaskList.
      * @return The TaskList that has been changed.
-     * @throws Exception If user do not input index.
+     * @throws Exception If user does not input index.
      */
     public TaskList parseDone(String str, TaskList tasks) throws Exception {
         String[] strArr = str.split(" ");
@@ -43,7 +43,7 @@ public class Parser {
      * @param str The String of command.
      * @param tasks The list of Task in TaskList.
      * @return The TaskList that has been changed.
-     * @throws Exception If user do not input description of Todo.
+     * @throws Exception If user does not input description of Todo.
      */
     public TaskList parseTodo(String str, TaskList tasks) throws Exception {
         String[] strArr = str.split(" ");
@@ -64,7 +64,7 @@ public class Parser {
      * @param str The String of command.
      * @param tasks The list of Task in TaskList.
      * @return The TaskList that has been changed.
-     * @throws Exception If user do not input description, date or time.
+     * @throws Exception If user does not input description, date or time.
      */
     public TaskList parseDeadline(String str, TaskList tasks) throws Exception {
         String[] strArr = str.split(" ");
@@ -106,7 +106,7 @@ public class Parser {
      * @param str The String of command.
      * @param tasks The list of Task in TaskList.
      * @return The TaskList that has been changed.
-     * @throws Exception If user do not input description, date or time.
+     * @throws Exception If user does not input description, date or time.
      */
     public TaskList parseEvent(String str, TaskList tasks) throws Exception {
         String[] strArr = str.split(" ");
@@ -148,7 +148,7 @@ public class Parser {
      * @param str The String of command.
      * @param tasks The list of Task in TaskList.
      * @return The TaskList that has been changed.
-     * @throws Exception If user do not input description, date or time.
+     * @throws Exception If user does not input description, date or time.
      */
     public TaskList parseDelete(String str, TaskList tasks) throws Exception {
         String[] strArr = str.split(" ");
@@ -178,7 +178,7 @@ public class Parser {
      * @param str The String of command.
      * @param tasks THe lis of Task in TaskList.
      * @return The TaskList that contains the keyword.
-     * @throws Exception If user do not input keyword.
+     * @throws Exception If user does not input keyword.
      */
     public TaskList parseFind(String str, TaskList tasks) throws Exception {
         String[] strArr = str.split(" ");
