@@ -26,7 +26,8 @@ public class Parser {
 
         if (index >= tasks.size()) {
             throw new DukeException("OOPS!!! The number is too large.");
-        } else if (index < 0) {
+        }
+        if (index < 0) {
             throw new DukeException("OOPS!!! The number is too small.");
         }
 
@@ -161,7 +162,8 @@ public class Parser {
 
         if (index >= tasks.size()) {
             throw new DukeException("OOPS!!! The number is too large.");
-        } else if (index < 0) {
+        }
+        if (index < 0) {
             throw new DukeException("OOPS!!! The number is too small.");
         }
 

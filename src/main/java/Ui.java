@@ -69,25 +69,45 @@ public class Ui {
 
         if (strArr[0].equals("list")) {
             tasks.setOutput(taskListMessage());
-        } else if (strArr[0].equals("done")) {
-            tasks = parser.parseDone(str, tasks);
-        } else if (strArr[0].equals("todo")) {
-            tasks = parser.parseTodo(str, tasks);
-        } else if (strArr[0].equals("deadline")) {
-            tasks = parser.parseDeadline(str, tasks);
-        } else if (strArr[0].equals("event")) {
-            tasks = parser.parseEvent(str, tasks);
-        } else if (strArr[0].equals("delete")) {
-            tasks = parser.parseDelete(str, tasks);
-        } else if (strArr[0].equals("find")) {
-            tasks.setOutput(matchingTaskMessage(parser.parseFind(str, tasks)));
-        } else if (strArr[0].equals("bye")) {
-            tasks.setOutput(goodbyeMessage());
-        } else {
-            throw new DukeException("OOPS!!! I,m sorry, but I don't know what that means :-(");
+            return tasks;
         }
 
-        return tasks;
+        if (strArr[0].equals("done")) {
+            tasks = parser.parseDone(str, tasks);
+            return tasks;
+        }
+
+        if (strArr[0].equals("todo")) {
+            tasks = parser.parseTodo(str, tasks);
+            return tasks;
+        }
+
+        if (strArr[0].equals("deadline")) {
+            tasks = parser.parseDeadline(str, tasks);
+            return tasks;
+        }
+
+        if (strArr[0].equals("event")) {
+            tasks = parser.parseEvent(str, tasks);
+            return tasks;
+        }
+
+        if (strArr[0].equals("delete")) {
+            tasks = parser.parseDelete(str, tasks);
+            return tasks;
+        }
+
+        if (strArr[0].equals("find")) {
+            tasks.setOutput(matchingTaskMessage(parser.parseFind(str, tasks)));
+            return tasks;
+        }
+
+        if (strArr[0].equals("bye")) {
+            tasks.setOutput(goodbyeMessage());
+            return tasks;
+        }
+
+        throw new DukeException("OOPS!!! I,m sorry, but I don't know what that means :-(");
     }
 
     /**

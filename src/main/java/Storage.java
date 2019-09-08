@@ -39,11 +39,7 @@ public class Storage {
                 Task t;
                 if (str.charAt(1) == 'T') {
                     t = new Todo(str.substring(7));
-                    if (str.charAt(4) == '\u2713') { //mark task as done
-                        t.markAsDone();
-                    }
-                    tasks.add(t);
-                } else if (str.charAt(1) == 'D') {
+                } else {
                     int indexOfBracket = str.indexOf(58);
                     String ss = str.substring(indexOfBracket);
                     String[] ssArr = ss.split(" ");
@@ -53,28 +49,18 @@ public class Storage {
                     Date date = dateTimeHandler.getDate();
                     LocalTime time = dateTimeHandler.getTime();
 
-                    t = new Deadline(str.substring(7, indexOfBracket - 4), date, time);
-                    if (str.charAt(4) == '\u2713') { //mark task as done
-                        t.markAsDone();
+                    if (str.charAt(1) == 'D') {
+                        t = new Deadline(str.substring(7, indexOfBracket - 4), date, time);
+                    } else {
+                        t = new Event(str.substring(7, indexOfBracket - 4), date, time);
                     }
-                    tasks.add(t);
-                } else {
-                    int index = str.indexOf(58);
-                    String ss = str.substring(index);
-                    String[] ssArr = ss.split(" ");
-
-                    DateTimeHandler dateTimeHandler = new DateTimeHandler(ssArr);
-                    dateTimeHandler.parseDateTimeFromStorage();
-                    Date date = dateTimeHandler.getDate();
-                    LocalTime time = dateTimeHandler.getTime();
-
-
-                    t = new Event(str.substring(7, index - 4), date, time);
-                    if (str.charAt(4) == '\u2713') { //mark task as done
-                        t.markAsDone();
-                    }
-                    tasks.add(t);
                 }
+
+                if (str.charAt(4) == '\u2713') { //mark task as done
+                    t.markAsDone();
+                }
+
+                tasks.add(t);
             }
             reader.close();
         } catch (IOException e) {
